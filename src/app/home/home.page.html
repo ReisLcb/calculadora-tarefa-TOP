@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Blank
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Blank</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <fieldset>
+    <strong>Calculadora</strong>
+    <ion-input label="Primeira entrada" type="number" [(ngModel)]="n1"></ion-input>
+    <ion-input label="Segunda entrada" type="number" [(ngModel)]="n2"></ion-input>
+    <br>
+    <p style="text-align: center;">Operação</p>
+    <ion-button value="+" [(ngModel)]="operacao">+</ion-button>
+    <ion-button value="-" [(ngModel)]="operacao">-</ion-button>
+    <ion-button value="*" [(ngModel)]="operacao">x</ion-button>
+    <ion-button value="/" [(ngModel)]="operacao">/</ion-button>
+
+   <!-- <ion-select label="Operação" [(ngModel)]="operacao">
+        <ion-select-option value="+">+</ion-select-option>
+        <ion-select-option value="-">-</ion-select-option>
+        <ion-select-option value="*">x</ion-select-option>
+        <ion-select-option value="/">/</ion-select-option>
+      </ion-select>  -->
+
+    <br>
+    <h2>Resultado</h2>
+  <div [ngSwitch]="operacao">
+    <strong><h3 *ngSwitchCase="'+'">{{ soma() }}</h3></strong>
+    <strong><h3 *ngSwitchCase="'-'">{{ subtracao() }}</h3></strong>
+  </div>
+    </fieldset>
+  </div>
+</ion-content>
